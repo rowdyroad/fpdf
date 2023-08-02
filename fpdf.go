@@ -3737,6 +3737,7 @@ func (f *Fpdf) getpagesizestr(sizeStr string) (size SizeType) {
 		size.Ht /= f.k
 
 	} else {
+		_, f.err =  fmt.Sscanf(sizeStr, "%fx%f", &size.Wd, &size.Ht)
 		f.err = fmt.Errorf("unknown page size %s", sizeStr)
 	}
 	return
